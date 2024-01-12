@@ -1,0 +1,45 @@
+h1 {
+  color: red;
+  text-align: center;
+}
+
+#animated_div {
+  width: 70px;
+  height: 47px;
+  background: #92b901;
+  color: #ffffff;
+  position: relative;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px;
+  animation: animated_div 5s 1;
+  border-radius: 5px;
+}
+
+@keyframes animated_div {
+  0% {
+    transform: rotate(0deg);
+    left: 0px;
+  }
+  25% {
+    transform: rotate(20deg);
+    left: 0px;
+  }
+  50% {
+    transform: rotate(0deg);
+    left: 500px;
+  }
+  55% {
+    transform: rotate(0deg);
+    left: 500px;
+  }
+  70% {
+    transform: rotate(0deg);
+    left: 500px;
+    background: #1ec7e6;
+  }
+  100% {
+    transform: rotate(-360deg);
+    left: 0px;
+  }
+}
