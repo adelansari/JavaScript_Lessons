@@ -24,3 +24,19 @@ let emptyValue = null; // Null
 Complex Data Type
 
 - Object: Collections of key-value pairs, where the values can be of any data type. Objects are used to store various keyed collections and more complex entities.
+
+## typeof
+
+The typeof operator in JavaScript is used to determine the type of a given value or variable. It is a unary operator that returns a string indicating the data type of its operand. This operator is particularly useful for debugging or when you need to check the type of a value before performing certain operations on it.
+
+```js
+let name = "Alice";
+let age = 30;
+let isStudent = false;
+let hobbies = ["reading", "cycling"];
+
+console.log(typeof name); // "string"
+console.log(typeof age); // "number"
+console.log(typeof isStudent); // "boolean"
+console.log(typeof hobbies); // "object" (arrays are type 'object' in JavaScript)
+```
