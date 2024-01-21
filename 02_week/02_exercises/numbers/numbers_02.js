@@ -3,7 +3,7 @@
 // The resulting temperature is rounded to one decimal place for precision.
 
 function fahrenheitToCelsius(temperature) {
-  return ((temperature - 32) * 5) / 9;
+  return Math.round(((temperature - 32) * 5) / 9);
 }
 
 // Sample usage - do not modify
