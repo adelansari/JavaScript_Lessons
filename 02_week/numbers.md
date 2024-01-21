@@ -128,15 +128,16 @@ This method is easy to use and very useful for formatting numbers for display. R
 The JavaScript Math object provides a collection of properties and methods for mathematical constants and functions. Unlike other global objects, Math is not a constructor, and all properties and methods of Math are static. This means they can be called without creating an instance of Math.
 
 Common Math Methods:
-**Math.round(x):** Returns the value of x rounded to its nearest integer.
-**Math.ceil(x):** Returns the smallest integer greater than or equal to x.
-**Math.floor(x):** Returns the largest integer less than or equal to x.
-**Math.abs(x):** Returns the absolute value of x.
-**Math.sqrt(x):** Returns the square root of x.
-**Math.pow(x, y):** Returns the value of x to the power of y.
-**Math.min(…values):** Returns the lowest-valued number passed into it.
-**Math.max(…values):** Returns the highest-valued number passed into it.
-**Math.random():** Returns a pseudo-random number between 0 and 1.
+
+- **Math.round(x):** Returns the value of x rounded to its nearest integer.
+- **Math.ceil(x):** Returns the smallest integer greater than or equal to x.
+- **Math.floor(x):** Returns the largest integer less than or equal to x.
+- **Math.abs(x):** Returns the absolute value of x.
+- **Math.sqrt(x):** Returns the square root of x.
+- **Math.pow(x, y):** Returns the value of x to the power of y.
+- **Math.min(…values):** Returns the lowest-valued number passed into it.
+- **Math.max(…values):** Returns the highest-valued number passed into it.
+- **Math.random():** Returns a pseudo-random number between 0 and 1.
 
 ```js
 let num = -5.67;

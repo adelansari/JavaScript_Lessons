@@ -8,6 +8,6 @@ count += 1;
 console.log(`Incremented value of count is $ `);
 
 // Task02
-ageLimit = 18;
+const ageLimit = 18;
 ageLimit = 5; // gives error: TypeError: Assignment to constant variable.
 console.log(ageLimit);
