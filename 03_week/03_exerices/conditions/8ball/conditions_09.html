@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="conditions_09.css" />
+    <title>8-Ball</title>
+  </head>
+  <body>
+    <header></header>
+    <h1>Magic <span class="large-title">8</span> Ball</h1>
+
+    <section class="ball-question">
+      <h2>Type your question here:</h2>
+      <form action="">
+        <input
+        type="text"
+        id="question-id"
+        placeholder="Should I buy a pizza?"
+        required
+      /><br />
+      <input
+        class="ball8-img"
+        type="image"
+        id="question-submit"
+        src="asset/ball8.png"
+        onclick="validateQuestion()"
+
+        
+      />
+      </form>
+      
+    </section>
+    <h2 id="ball-answer"></p>
+
+    <script src="conditions_09.js"></script>
+  </body>
+</html>

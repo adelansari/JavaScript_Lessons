@@ -3,9 +3,7 @@ Refine the capitalize function to ensure it capitalizes the first letter of the 
  */
 
 function capitalize(word) {
-  let wordLowerCase = word.toLowerCase().slice(1);
-  let firstLetter = word[0].toUpperCase();
-  return firstLetter + wordLowerCase;
+  return word[0].toUpperCase() + word.toLowerCase().slice(1);
 }
 
 // Sample usage - do not modify

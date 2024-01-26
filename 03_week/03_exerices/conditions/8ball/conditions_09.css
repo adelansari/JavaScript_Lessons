@@ -1,0 +1,32 @@
+* {
+  margin-bottom: 20px;
+  text-align: center;
+  background-color: #333;
+  color: white;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 4rem;
+  margin-top: 10%;
+}
+
+.large-title {
+  font-size: 8rem;
+  color: aquamarine;
+}
+
+.ball-question h2 {
+  margin-top: 3rem;
+}
+
+.ball8-img {
+  max-height: 100px;
+}
+
+#question-id {
+  width: 40%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  font-size: 20px;
+}
