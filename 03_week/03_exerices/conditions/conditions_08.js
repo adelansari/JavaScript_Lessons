@@ -7,11 +7,7 @@ Returns a string combining the number and the appropriately pluralized form of t
 */
 
 const pluralize = (noun, number) => {
-  if (number < 2) {
-    return `${number} ${noun}.`;
-  } else {
-    return `${number} ${noun}s.`;
-  }
+  return number < 2 ? `${number} ${noun}.` : `${number} ${noun}s.`;
 };
 
 // Sample usage - do not modify
