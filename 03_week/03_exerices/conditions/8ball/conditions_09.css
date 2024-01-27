@@ -1,6 +1,5 @@
 * {
   /* margin-bottom: 20px; */
-  /* text-align: center; */
   text-align: center;
 }
 
@@ -10,6 +9,7 @@ body {
   display: flex;
   flex-direction: column;
   align-content: center;
+  font-family: '';
 }
 
 h1 {
@@ -25,6 +25,7 @@ span {
 .large-title {
   font-size: 8rem;
   color: aquamarine;
+  animation: pulsate 1s ease-in-out infinite;
 }
 
 .ball-question h2 {
@@ -35,11 +36,20 @@ span {
   max-height: 150px;
 }
 
+@keyframes pulsate {
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
 #question-input {
   width: 40%;
   padding: 12px 20px;
   margin: 8px 0;
   font-size: 20px;
+  border-radius: 10px;
+  background-color: #f2f2f2;
 }
 
 .shake {
