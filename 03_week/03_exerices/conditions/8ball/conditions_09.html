@@ -2,36 +2,33 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="conditions_09.css" />
+    <link rel="stylesheet" type="text/css" href="conditions_09.css" />
     <title>8-Ball</title>
   </head>
   <body>
-    <header></header>
-    <h1>Magic <span class="large-title">8</span> Ball</h1>
-
+    <header>
+      <h1>Mage<span class="large-title">8</span>Ball</h1>
+    </header>
     <section class="ball-question">
-      <h2>Type your question here:</h2>
-      <form action="">
+      <h2>Type your yes/no type of question here:</h2>
+      <form>
         <input
-        type="text"
-        id="question-id"
-        placeholder="Should I buy a pizza?"
-        required
-      /><br />
-      <input
-        class="ball8-img"
-        type="image"
-        id="question-submit"
-        src="asset/ball8.png"
-        onclick="validateQuestion()"
-
-        
-      />
+          type="text"
+          id="question-input"
+          placeholder="Should I buy a pizza?"
+          required
+        />
+        <br />
+        <input
+          class="ball8-img"
+          type="image"
+          id="question-submit"
+          src="asset/ball8.png"
+          onclick="validateQuestion(event)"
+        />
       </form>
-      
     </section>
-    <h2 id="ball-answer"></p>
+    <h4 id="ball-answer"></h4>
 
     <script src="conditions_09.js"></script>
   </body>

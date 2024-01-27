@@ -4,8 +4,7 @@ The user will input a yes-or-no question, and the program will output a random r
 Implement the program using conditional statements to select and display one of several predefined responses.
 */
 
-const questionInput = document.getElementById('question-id');
-// const questionSubmit = document.getElementById('question-submit');
+const questionInput = document.getElementById('question-input');
 
 const magicAnswer = (question) => {
   const magicAnswers = [
@@ -34,13 +33,15 @@ const magicAnswer = (question) => {
   return magicAnswers[Math.round(Math.random() * (magicAnswers.length - 1))];
 };
 
-const validateQuestion = () => {
-  if (!questionInput) {
-    document.getElementById('ball-answer').innerHTML = magicAnswer();
-    document.getElementById('ball-answer').style.color = 'white';
-  } else {
-    document.getElementById('ball-answer').innerHTML =
+const validateQuestion = (event) => {
+  event.preventDefault();
+  if (questionInput.value.trim() == '') {
+    document.getElementById('ball-answer').textContent =
       'Write your question first Haiya';
-    document.getElementById('ball-answer').style.color = 'orange';
+    document.getElementById('ball-answer').style.color = 'red';
+    questionInput.style.borderColor = 'red';
+  } else {
+    document.getElementById('ball-answer').textContent = magicAnswer();
+    questionInput.value = '';
   }
 };
