@@ -9,12 +9,22 @@ const ballAnswer = document.getElementById('ball-answer');
 const questionSubmit = document.getElementById('question-submit');
 const loaderSpinner = document.getElementById('loader');
 
-const shakeAnimation = () => {
+const shakeAnimation = (question) => {
+  ballAnswer.textContent = '';
+  loaderSpinner.hidden = false;
   questionSubmit.classList.add('shake');
   setTimeout(() => {
     questionSubmit.classList.remove('shake');
-    ballAnswer.textContent = 'Write your question first Haiya';
-    ballAnswer.style.color = 'red';
+    loaderSpinner.hidden = true;
+    switch (question) {
+      case 'noQuestion':
+        ballAnswer.textContent = 'That is not a question haiyaaaaa';
+        break;
+      case 'empty':
+        ballAnswer.textContent = 'Write your question first haiyaa';
+        break;
+    }
+    ballAnswer.style.color = '#ff1100';
     questionInput.style.borderColor = 'red';
   }, 500);
 };
@@ -64,7 +74,9 @@ const validateQuestion = (event) => {
   event.preventDefault();
   const question = questionInput.value.trim();
   if (question == '') {
-    shakeAnimation();
+    shakeAnimation('empty');
+  } else if (!question.includes('?')) {
+    shakeAnimation('noQuestion');
   } else {
     questionInput.removeAttribute('style');
     performAnimation();
