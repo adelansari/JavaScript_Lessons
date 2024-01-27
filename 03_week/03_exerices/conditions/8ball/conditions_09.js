@@ -18,14 +18,16 @@ const shakeAnimation = (question) => {
     loaderSpinner.hidden = true;
     switch (question) {
       case 'noQuestion':
-        ballAnswer.textContent = 'That is not a question haiyaaaaa';
+        ballAnswer.textContent =
+          'That is not a question haiyaaaaa. Where is "?"';
         break;
       case 'empty':
-        ballAnswer.textContent = 'Write your question first haiyaa';
+        ballAnswer.textContent = 'The question field is empty haiyaa';
         break;
     }
     ballAnswer.style.color = '#ff1100';
     questionInput.style.borderColor = 'red';
+    questionInput.style.borderWidth = '3px';
   }, 500);
 };
 
@@ -43,7 +45,7 @@ const performAnimation = () => {
   }, 2500);
 };
 
-const magicAnswer = (question) => {
+const magicAnswer = () => {
   const magicAnswers = [
     'It is certain',
     'It is decidedly so',
@@ -73,7 +75,7 @@ const magicAnswer = (question) => {
 const validateQuestion = (event) => {
   event.preventDefault();
   const question = questionInput.value.trim();
-  if (question == '') {
+  if (question === '') {
     shakeAnimation('empty');
   } else if (!question.includes('?')) {
     shakeAnimation('noQuestion');
@@ -82,3 +84,4 @@ const validateQuestion = (event) => {
     performAnimation();
   }
 };
+questionSubmit.addEventListener('click', validateQuestion);
