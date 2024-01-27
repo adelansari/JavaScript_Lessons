@@ -4,7 +4,7 @@ let numberTotal = 20;
 let evenCount = 0;
 
 while (numberTotal > 0) {
-  let inputNumbers = Number(prompt('Enter any number:'));
+  let inputNumbers = Number(prompt(`Enter any number (${numberTotal} left):`));
   if (inputNumbers % 2 == 0) {
     evenCount++;
   }
