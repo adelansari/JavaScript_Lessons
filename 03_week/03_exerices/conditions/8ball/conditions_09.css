@@ -32,7 +32,7 @@ span {
 }
 
 .ball8-img {
-  max-height: 100px;
+  max-height: 150px;
 }
 
 #question-input {
@@ -40,4 +40,76 @@ span {
   padding: 12px 20px;
   margin: 8px 0;
   font-size: 20px;
+}
+
+.shake {
+  animation: shake 0.5s linear infinite;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-10px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(10px);
+  }
+}
+
+.animate {
+  animation: animate 0.4s ease-in-out infinite;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(20deg);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  75% {
+    transform: rotate(-20deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+#loader {
+  width: 30px;
+  height: 30px;
+  box-shadow: 2px 2px lawngreen;
+  position: relative;
+  top: -30px;
+  margin: 0 auto;
+  border: 7px solid #1e1b1c;
+  border-radius: 50%;
+  border-top: 7px solid #00ffe5;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

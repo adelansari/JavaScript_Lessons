@@ -5,6 +5,33 @@ Implement the program using conditional statements to select and display one of 
 */
 
 const questionInput = document.getElementById('question-input');
+const ballAnswer = document.getElementById('ball-answer');
+const questionSubmit = document.getElementById('question-submit');
+const loaderSpinner = document.getElementById('loader');
+
+const shakeAnimation = () => {
+  questionSubmit.classList.add('shake');
+  setTimeout(() => {
+    questionSubmit.classList.remove('shake');
+    ballAnswer.textContent = 'Write your question first Haiya';
+    ballAnswer.style.color = 'red';
+    questionInput.style.borderColor = 'red';
+  }, 500);
+};
+
+const performAnimation = () => {
+  ballAnswer.textContent = '';
+  loaderSpinner.hidden = false;
+  questionSubmit.classList.add('animate');
+  setTimeout(() => {
+    questionSubmit.classList.remove('animate');
+    loaderSpinner.hidden = true;
+    ballAnswer.classList.remove();
+    ballAnswer.textContent = magicAnswer();
+    questionInput.value = '';
+    ballAnswer.style.color = 'rgb(187, 223, 96)';
+  }, 2500);
+};
 
 const magicAnswer = (question) => {
   const magicAnswers = [
@@ -35,13 +62,11 @@ const magicAnswer = (question) => {
 
 const validateQuestion = (event) => {
   event.preventDefault();
-  if (questionInput.value.trim() == '') {
-    document.getElementById('ball-answer').textContent =
-      'Write your question first Haiya';
-    document.getElementById('ball-answer').style.color = 'red';
-    questionInput.style.borderColor = 'red';
+  const question = questionInput.value.trim();
+  if (question == '') {
+    shakeAnimation();
   } else {
-    document.getElementById('ball-answer').textContent = magicAnswer();
-    questionInput.value = '';
+    questionInput.removeAttribute('style');
+    performAnimation();
   }
 };
