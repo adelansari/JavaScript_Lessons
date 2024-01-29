@@ -2,6 +2,10 @@
 
 Here you will find JavaScript Lessons categorized in week format.
 
-# Credits
+## List of deployed apps in this repo:
+
+- [8-ball web ui](https://adelansari.github.io/JavaScript_Lessons/03_week/03_exerices/conditions/8ball/conditions_09.html)
+
+## Credits
 
 I would like to thank [Margit Tennosaar](https://github.com/margittennosaar) This repo is following [JS_react24k](https://github.com/margittennosaar/JS_react24k) repository.
