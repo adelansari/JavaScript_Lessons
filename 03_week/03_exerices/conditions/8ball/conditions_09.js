@@ -18,15 +18,14 @@ const shakeAnimation = (question) => {
     loaderSpinner.hidden = true;
     switch (question) {
       case 'noQuestion':
-        ballAnswer.textContent =
-          'That is not a question haiyaaaaa. Where is "?"';
+        ballAnswer.textContent = 'That is not a question haiyaaaaa. Where is "?"';
         break;
       case 'empty':
         ballAnswer.textContent = 'The question field is empty haiyaa';
         break;
     }
-    ballAnswer.style.color = '#ff1100';
-    questionInput.style.borderColor = 'red';
+    ballAnswer.style.color = 'rgb(255 118 108)';
+    questionInput.style.borderColor = 'rgb(255 118 108)';
     questionInput.style.borderWidth = '3px';
   }, 500);
 };
@@ -42,7 +41,7 @@ const performAnimation = () => {
     ballAnswer.textContent = magicAnswer();
     questionInput.value = '';
     ballAnswer.style.color = 'rgb(187, 223, 96)';
-  }, 2500);
+  }, 2000);
 };
 
 const magicAnswer = () => {
