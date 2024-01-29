@@ -5,10 +5,8 @@ let evenCount = 0;
 
 while (numberTotal > 0) {
   let inputNumbers = Number(prompt(`Enter any number (${numberTotal} left):`));
-  if (inputNumbers % 2 == 0) {
-    evenCount++;
-  }
+  if (inputNumbers % 2 == 0) evenCount++;
   numberTotal--;
 }
 
-console.log(evenCount);
+console.log('Average was', evenCount);
