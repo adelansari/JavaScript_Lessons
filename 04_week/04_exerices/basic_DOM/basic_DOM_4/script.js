@@ -1,6 +1,6 @@
 const pancakeType = document.querySelector('#type');
 const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-const totalPrice = document.querySelector('#totalPrice');
+const totalPrice = document.querySelectorAll('.totalPrice');
 
 const calculatePrice = () => {
   let price = parseFloat(pancakeType.value);
@@ -9,10 +9,22 @@ const calculatePrice = () => {
       price += parseFloat(checkbox.value);
     }
   });
-  totalPrice.textContent = `€${price.toFixed(2)}`;
+  totalPrice.forEach((element) => (element.textContent = `€${price.toFixed(2)}`));
 };
 
 pancakeType.addEventListener('change', calculatePrice);
 checkboxes.forEach((checkbox) => checkbox.addEventListener('change', calculatePrice));
 
 calculatePrice();
+
+const updatePriceWithAnimation = (newPrice) => {
+  totalPrice.textContent = `€${newPrice.toFixed(2)}`;
+  totalPriceB.textContent = `€${newPrice.toFixed(2)}`;
+
+  anime({
+    targets: [totalPrice, totalPriceB],
+    scale: [1, 1.2, 1],
+    duration: 500,
+    easing: 'easeOutBounce',
+  });
+};

@@ -23,7 +23,8 @@ body {
 
 .image-container img {
   width: 100%;
-  max-width: 400px;
+  height: 100%;
+  object-fit: cover;
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -48,4 +49,19 @@ body {
   align-items: center;
   font-size: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .image-container {
+    height: 50vh;
+  }
+
+  .form-container {
+    height: 50vh;
+    overflow: auto;
+  }
 }
