@@ -16,22 +16,29 @@
         <div class="customization-section">
           <label for="type">Choose your pancake type:</label>
           <select id="type">
-            <option value="5">Classic - $5</option>
-            <option value="6">Chocolate - $6</option>
-            <option value="7">Blueberry - $7</option>
+            <option value="5">Classic - €5</option>
+            <option value="6">Chocolate - €6</option>
+            <option value="7">Blueberry - €7</option>
           </select>
         </div>
         <div class="customization-section">
-          <p>Select your toppings ($1 each):</p>
-          <input type="checkbox" id="nuts" value="1" />Nuts<br />
-          <input type="checkbox" id="bananas" value="1" />Bananas<br />
-          <input type="checkbox" id="syrup" value="1" />Syrup<br />
+          <p>Select your toppings (€1 each):</p>
+
+          <input type="checkbox" id="nuts" value="1" />
+          <label for="nuts">Nuts</label><br />
+
+          <input type="checkbox" id="bananas" value="1" />
+          <label for="bananas">Bananas</label>
+          <br />
+
+          <input type="checkbox" id="syrup" value="1" />
+          <label for="syrup">Syrup</label>
+          <br />
         </div>
         <div class="customization-section">
           <p>Add extras:</p>
-          <input type="checkbox" id="whippedCream" value="2" />Whipped Cream -
-          $2<br />
-          <input type="checkbox" id="iceCream" value="3" />Ice Cream - $3<br />
+          <input type="checkbox" id="whippedCream" value="2" />Whipped Cream - €2<br />
+          <input type="checkbox" id="iceCream" value="3" />Ice Cream - €3<br />
         </div>
         <div class="price-display">
           <h3>Total Price: <span id="totalPrice">$5</span></h3>
