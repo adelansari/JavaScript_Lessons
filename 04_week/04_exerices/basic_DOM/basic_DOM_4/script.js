@@ -16,6 +16,7 @@ let totalPrice = document.querySelectorAll('.totalPrice');
 let pancakeImage = document.querySelector('.pancake-image');
 let imageContainer = document.querySelector('.image-container');
 let toppingImage = document.querySelectorAll('.topping-image');
+let discountPriceSpan = document.querySelector('.discount-price');
 
 const calculatePrice = () => {
   switch (pancakeType.value) {
@@ -29,11 +30,11 @@ const calculatePrice = () => {
       pancakeImage.src = 'assets/pancake-blueberry.webp';
       break;
   }
-  let price = parseFloat(pancakeType.value);
+  let price = parseInt(pancakeType.value);
   checkboxes.forEach((checkbox, index) => {
     if (checkbox.checked) {
       toppingImage[index].classList.add('visible');
-      price += parseFloat(checkbox.value);
+      price += parseInt(checkbox.value);
     } else {
       toppingImage[index].classList.remove('visible');
     }
@@ -48,6 +49,14 @@ const calculatePrice = () => {
       element.style.color = '';
     }, 500);
   });
+
+  // Update Discount Price
+  let discountedPrice = price - 2;
+  discountPriceSpan.textContent = `€${discountedPrice}`;
+  discountPriceSpan.style.transform = 'scale(1.5)';
+  setTimeout(() => {
+    discountPriceSpan.style.transform = 'scale(1)';
+  }, 500);
 };
 
 pancakeType.addEventListener('change', calculatePrice);
@@ -86,8 +95,8 @@ let konamiCodeDiv = document.querySelector('.konami-code');
 let konamiCodeSuccessDiv = document.querySelector('.konami-code-success');
 
 document.addEventListener('keydown', (e) => {
-  // If the text color is green, stop handling key presses
-  if (konamiCodeDiv.style.color === 'green') {
+  // If the text color is limegreen, stop handling key presses
+  if (konamiCodeDiv.style.color === 'limegreen') {
     return;
   }
 
@@ -98,18 +107,11 @@ document.addEventListener('keydown', (e) => {
 
   if (keys.join('') === secretCode.join('')) {
     showHint();
-    konamiCodeDiv.style.color = 'green';
+    konamiCodeDiv.style.color = 'limegreen';
     konamiCodeSuccessDiv.style.display = 'block';
 
-    let discountPriceSpan = document.querySelector('.discount-price');
-
-    // Calculate the discounted price
-    let discountedPrice = parseInt(totalPrice[0].textContent, 10) - 2;
-
-    // Update the text content of the discount-price span
-    discountPriceSpan.textContent = discountedPrice.toString();
-
     // Show the discount-label
+    calculatePrice();
     const discountLabel = document.querySelector('.discount-label');
     discountLabel.style.display = 'block';
   }

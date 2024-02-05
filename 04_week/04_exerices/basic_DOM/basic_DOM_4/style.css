@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); */
 
 body {
-  font-family: sans-serif;
+  font-family: 'Poppins', sans-serif;
   background-color: #fff8f0;
   color: hsl(20, 15%, 31%);
   height: 100vh;
@@ -112,6 +112,11 @@ body {
   transition: transform 0.5s;
 }
 
+.discount-price {
+  display: inline-block;
+  transition: transform 0.5s;
+}
+
 .popup {
   position: relative;
   display: inline-block;
@@ -163,6 +168,7 @@ body {
 
 .konami-code-success {
   display: none;
+  color: #580c73;
 }
 
 .konami-code {
@@ -170,14 +176,12 @@ body {
 }
 
 .discount-price {
-  color: rgb(8, 114, 47);
-  font-size: 1.5em;
+  color: #46a23b;
 }
 
 .discount-label {
-  color: rgb(231, 129, 33);
+  color: rgb(0, 0, 0);
   display: none;
-  font-size: 1.2em;
   font-weight: bold;
 }
 
