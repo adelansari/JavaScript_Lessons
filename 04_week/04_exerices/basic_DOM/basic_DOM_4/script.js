@@ -89,23 +89,8 @@ const handleKonamiCode = (e) => {
 
   konamiCodeDiv.textContent = keys.map((key) => keySymbols[key] || key).join(' ');
 
-  if (keys.join('') === secretCode.join('')) {
-    if (isHintShown) {
-      showHint();
-    }
-    konamiCodeDiv.style.color = 'limegreen';
-    konamiCodeSuccessDiv.style.display = 'block';
-
-    // show the discount-label
-    calculatePrice();
-    discountLabel.style.display = 'block';
-  }
+  checkKonamiCode();
 };
-
-let touchStartX = 0;
-let touchEndX = 0;
-let touchStartY = 0;
-let touchEndY = 0;
 
 const handleTouchStart = (e) => {
   touchStartX = e.changedTouches[0].screenX;
@@ -119,6 +104,11 @@ const handleTouchEnd = (e) => {
 };
 
 const handleSwipe = () => {
+  if (touchStartX === touchEndX && touchStartY === touchEndY) {
+    // No swipe occurred, return early
+    return;
+  }
+
   let swipeDirection;
 
   if (Math.abs(touchEndX - touchStartX) > Math.abs(touchEndY - touchStartY)) {
@@ -132,6 +122,10 @@ const handleSwipe = () => {
   keys.push(swipeDirection);
   keys = keys.slice(-secretCode.length); // keep only the last 'secretCode.length' pressed keys
 
+  checkKonamiCode();
+};
+
+const checkKonamiCode = () => {
   if (keys.join('') === secretCode.join('')) {
     if (isHintShown) {
       showHint();
@@ -143,7 +137,6 @@ const handleSwipe = () => {
     calculatePrice();
     discountLabel.style.display = 'block';
   }
-  checkKonamiCode();
 };
 
 document.addEventListener('touchstart', handleTouchStart, false);
