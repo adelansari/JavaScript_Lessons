@@ -72,8 +72,10 @@ const calculatePrice = () => {
   }, 500);
 };
 
+let isHintShown = false;
 const showHint = () => {
   hintText.classList.toggle('show');
+  isHintShown = !isHintShown; // toggle the state
 };
 
 const handleKonamiCode = (e) => {
@@ -88,7 +90,9 @@ const handleKonamiCode = (e) => {
   konamiCodeDiv.textContent = keys.map((key) => keySymbols[key] || key).join(' ');
 
   if (keys.join('') === secretCode.join('')) {
-    showHint();
+    if (isHintShown) {
+      showHint();
+    }
     konamiCodeDiv.style.color = 'limegreen';
     konamiCodeSuccessDiv.style.display = 'block';
 
@@ -97,6 +101,69 @@ const handleKonamiCode = (e) => {
     discountLabel.style.display = 'block';
   }
 };
+
+let touchStartX = 0;
+let touchEndX = 0;
+let touchStartY = 0;
+let touchEndY = 0;
+
+const handleTouchStart = (e) => {
+  touchStartX = e.changedTouches[0].screenX;
+  touchStartY = e.changedTouches[0].screenY;
+};
+
+const handleTouchEnd = (e) => {
+  touchEndX = e.changedTouches[0].screenX;
+  touchEndY = e.changedTouches[0].screenY;
+  handleSwipe();
+};
+
+const handleSwipe = () => {
+  let swipeDirection;
+
+  if (Math.abs(touchEndX - touchStartX) > Math.abs(touchEndY - touchStartY)) {
+    // horizontal swipe
+    swipeDirection = touchEndX > touchStartX ? 'ArrowRight' : 'ArrowLeft';
+  } else {
+    // vertical swipe
+    swipeDirection = touchEndY > touchStartY ? 'ArrowDown' : 'ArrowUp';
+  }
+
+  keys.push(swipeDirection);
+  keys = keys.slice(-secretCode.length); // keep only the last 'secretCode.length' pressed keys
+
+  if (keys.join('') === secretCode.join('')) {
+    if (isHintShown) {
+      showHint();
+    }
+    konamiCodeDiv.style.color = 'limegreen';
+    konamiCodeSuccessDiv.style.display = 'block';
+
+    // show the discount-label
+    calculatePrice();
+    discountLabel.style.display = 'block';
+  }
+  checkKonamiCode();
+};
+
+document.addEventListener('touchstart', handleTouchStart, false);
+document.addEventListener('touchend', handleTouchEnd, false);
+
+document.querySelector('#button-a').addEventListener('click', () => {
+  keys.push('a');
+  checkKonamiCode();
+});
+
+document.querySelector('#button-b').addEventListener('click', () => {
+  keys.push('b');
+  checkKonamiCode();
+});
+
+// show buttons if user is on mobile
+if (/Mobi|Android/i.test(navigator.userAgent)) {
+  document.querySelector('#button-a').style.display = 'block';
+  document.querySelector('#button-b').style.display = 'block';
+}
 
 let keys = [];
 const secretCode = [

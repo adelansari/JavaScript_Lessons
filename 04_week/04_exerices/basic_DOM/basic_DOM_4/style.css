@@ -8,6 +8,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 1.2rem;
+}
+
+select {
+  font-size: 1.2rem;
 }
 
 .container {
@@ -142,7 +147,7 @@ body {
   content: '';
   position: absolute;
   top: 100%;
-  left: 10%; /* Adjust this */
+  left: 10%;
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
@@ -182,6 +187,10 @@ body {
   color: rgb(0, 0, 0);
   display: none;
   font-weight: bold;
+}
+
+.mobile-button {
+  display: none;
 }
 
 @media (max-width: 800px) {
