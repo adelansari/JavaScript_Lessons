@@ -1,6 +1,5 @@
-const toppings = ['nuts', 'bananas', 'syrup', 'whippedCream', 'icecream'];
 const toppingContainer = document.querySelector('.topping-container');
-
+const toppings = ['nuts', 'bananas', 'syrup', 'whippedCream', 'icecream'];
 toppings.forEach((topping) => {
   let img = document.createElement('img');
   img.src = `assets/topping-${topping}.webp`;
@@ -10,13 +9,27 @@ toppings.forEach((topping) => {
   toppingContainer.appendChild(img);
 });
 
-let pancakeType = document.querySelector('#type');
-let checkboxes = document.querySelectorAll('input[type="checkbox"]');
-let totalPrice = document.querySelectorAll('.totalPrice');
-let pancakeImage = document.querySelector('.pancake-image');
-let imageContainer = document.querySelector('.image-container');
-let toppingImage = document.querySelectorAll('.topping-image');
-let discountPriceSpan = document.querySelector('.discount-price');
+const pancakeType = document.querySelector('#type');
+const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+const totalPrice = document.querySelectorAll('.totalPrice');
+const pancakeImage = document.querySelector('.pancake-image');
+const imageContainer = document.querySelector('.image-container');
+const toppingImage = document.querySelectorAll('.topping-image');
+const discountPriceSpan = document.querySelector('.discount-price');
+const easterEgg = document.querySelector('.popup');
+const hintText = document.querySelector('.popuptext');
+const konamiCodeDiv = document.querySelector('.konami-code');
+const konamiCodeSuccessDiv = document.querySelector('.konami-code-success');
+const discountLabel = document.querySelector('.discount-label');
+
+const createAndAppendTopping = (topping) => {
+  let img = document.createElement('img');
+  img.src = `assets/topping-${topping}.webp`;
+  img.alt = topping;
+  img.classList.add('topping-image');
+
+  toppingContainer.appendChild(img);
+};
 
 const calculatePrice = () => {
   switch (pancakeType.value) {
@@ -50,7 +63,7 @@ const calculatePrice = () => {
     }, 500);
   });
 
-  // Update Discount Price
+  // update Discount Price
   let discountedPrice = price - 2;
   discountPriceSpan.textContent = `€${discountedPrice}`;
   discountPriceSpan.style.transform = 'scale(1.5)';
@@ -59,43 +72,12 @@ const calculatePrice = () => {
   }, 500);
 };
 
-pancakeType.addEventListener('change', calculatePrice);
-checkboxes.forEach((checkbox) => checkbox.addEventListener('change', calculatePrice));
-
-let easterEgg = document.querySelector('.popup');
-let hintText = document.querySelector('.popuptext');
 const showHint = () => {
   hintText.classList.toggle('show');
 };
-easterEgg.addEventListener('click', showHint);
 
-// keypress event for konami code ↑↑↓↓←→←→BA
-let keys = [];
-let secretCode = [
-  'ArrowUp',
-  'ArrowUp',
-  'ArrowDown',
-  'ArrowDown',
-  'ArrowLeft',
-  'ArrowRight',
-  'ArrowLeft',
-  'ArrowRight',
-  'b',
-  'a',
-];
-
-let keySymbols = {
-  ArrowUp: '↑',
-  ArrowDown: '↓',
-  ArrowLeft: '←',
-  ArrowRight: '→',
-};
-
-let konamiCodeDiv = document.querySelector('.konami-code');
-let konamiCodeSuccessDiv = document.querySelector('.konami-code-success');
-
-document.addEventListener('keydown', (e) => {
-  // If the text color is limegreen, stop handling key presses
+const handleKonamiCode = (e) => {
+  // to stop handling key presses
   if (konamiCodeDiv.style.color === 'limegreen') {
     return;
   }
@@ -110,9 +92,35 @@ document.addEventListener('keydown', (e) => {
     konamiCodeDiv.style.color = 'limegreen';
     konamiCodeSuccessDiv.style.display = 'block';
 
-    // Show the discount-label
+    // show the discount-label
     calculatePrice();
-    const discountLabel = document.querySelector('.discount-label');
     discountLabel.style.display = 'block';
   }
-});
+};
+
+let keys = [];
+const secretCode = [
+  'ArrowUp',
+  'ArrowUp',
+  'ArrowDown',
+  'ArrowDown',
+  'ArrowLeft',
+  'ArrowRight',
+  'ArrowLeft',
+  'ArrowRight',
+  'b',
+  'a',
+];
+
+const keySymbols = {
+  ArrowUp: '↑',
+  ArrowDown: '↓',
+  ArrowLeft: '←',
+  ArrowRight: '→',
+};
+
+toppings.forEach(createAndAppendTopping);
+pancakeType.addEventListener('change', calculatePrice);
+checkboxes.forEach((checkbox) => checkbox.addEventListener('change', calculatePrice));
+easterEgg.addEventListener('click', showHint);
+document.addEventListener('keydown', handleKonamiCode);
