@@ -2,22 +2,28 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pancake Maker</title>
     <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" /> -->
   </head>
   <body>
     <div class="container">
       <div class="image-container">
-        <img src="pancake.jpeg" alt="Delicious pancakes" />
+        <img class="pancake-image" src="assets/pancake-classic.webp" alt="Delicious pancakes" />
+
+        <!-- toppings are added in js code -->
+        <div class="topping-container"></div>
+
         <div class="price-banner"><span class="totalPrice">€5</span></div>
       </div>
+
       <div class="form-container">
         <h2>Customize Your Pancake</h2>
         <div class="customization-section">
           <label for="type">Choose your pancake type:</label>
           <select id="type">
-            <option value="5">Classic - €5</option>
+            <option class="pancake-classic" value="5">Classic - €5</option>
             <option value="6">Chocolate - €6</option>
             <option value="7">Blueberry - €7</option>
           </select>
@@ -38,12 +44,23 @@
         </div>
         <div class="customization-section">
           <p>Add extras:</p>
-          <input type="checkbox" id="whippedCream" value="2" />Whipped Cream - €2<br />
-          <input type="checkbox" id="iceCream" value="3" />Ice Cream - €3<br />
+          <input type="checkbox" id="whippedCream" value="2" />
+          <label for="whippedCream">Whipped Cream - €2</label><br />
+          <input type="checkbox" id="iceCream" value="3" />
+          <label for="">Ice Cream - €3</label><br />
         </div>
         <div class="price-display">
           <h3>Total Price: <span class="totalPrice">€5</span></h3>
+          <h4 class="discount-label">Discounted Price: <span class="discount-price"></span></h4>
         </div>
+
+        <!-- Easter Egg -->
+        <div class="popup">
+          Easter Egg
+          <span class="popuptext">Konami Code: ↑↑↓↓←→←→BA</span>
+        </div>
+        <div class="konami-code"></div>
+        <div class="konami-code-success">You are epic. Enjoy this 2€ discount!</div>
       </div>
     </div>
     <script src="script.js"></script>
