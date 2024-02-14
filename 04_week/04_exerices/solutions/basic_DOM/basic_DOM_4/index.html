@@ -32,33 +32,49 @@
       <div class="customization-section">
         <p>Select your toppings ($1 each):</p>
         <div>
-          <input type="checkbox" id="nuts" value="1" />
+          <input type="checkbox" id="nuts" value="1" data-name="Nuts" data-category="toppings" />
           <label for="nuts">Nuts</label>
         </div>
         <div>
-          <input type="checkbox" id="bananas" value="1" />
+          <input type="checkbox" id="bananas" value="1" data-name="Bananas" data-category="toppings" />
           <label for="bananas">Bananas</label>
         </div>
         <div>
-          <input type="checkbox" id="syrup" value="1" />
+          <input type="checkbox" id="syrup" value="1" data-name="Syrup" data-category="toppings" />
           <label for="syrup">Syrup</label>
         </div>
       </div>
       <div class="customization-section">
         <p>Add extras:</p>
         <div>
-          <input type="checkbox" id="whippedCream" value="2" />
+          <input type="checkbox" id="whippedCream" value="2" data-name="Whipped Cream" data-category="extras" />
           <label for="whippedCream">Whipped Cream -
             $2</label>
         </div>
         <div>
-          <input type="checkbox" id="iceCream" value="3" />
+          <input type="checkbox" id="iceCream" value="3" data-name="Ice Cream" data-category="extras" />
           <label for="iceCream">Ice Cream - $3</label>
         </div>
       </div>
       <p></p>
-      <p>Your name:</p>
-      <input type="text">
+
+      <div class="details-form">
+        <h3>Your Details</h3>
+        <div>
+          <label for="customerName">Your name:</label>
+          <input id="customerName" type="text" placeholder="your name...">
+        </div>
+        <input id="order-button" type="button" value="Make Order">
+      </div>
+      <div class="order">
+        <p>Type: <span id="order_type"></span></p>
+        <p>Toppings: <span id="order_toppings"></span></p>
+        <p>Extras: <span id="order_extras"></span></p>
+        <p>Name: <span id="order_name"></span></p>
+        <p>Total Price: <span id="order_price"></span></p>
+
+
+      </div>
 
       <!--         <div class="price-display">
           <h3>Total Price: <span id="totalPrice">$5</span></h3>
