@@ -15,8 +15,11 @@ function task1() {
     console.log(`An error occurred. Error message: ${error.message}`);
   }
 }
+// Calling task1 function
+// task1();
 
-task1();
+/* -------------------------------------- */
+/* -------------------------------------- */
 
 // Task 2: Catching ReferenceError
 /*
@@ -33,6 +36,12 @@ function task2() {
   }
 }
 
+// Calling task2 function
+// task2();
+
+/* -------------------------------------- */
+/* -------------------------------------- */
+
 // Task 3: Using Finally
 /*
 Use a try-catch-finally block. In the finally block, log 'Execution completed'.
@@ -43,11 +52,17 @@ function task3() {
   try {
     console.log(foxes);
   } catch (error) {
-    console.log(error);
+    console.log(`Error message: ${error.message}`);
   } finally {
     console.log('Execution completed');
   }
 }
+
+// Calling task3 function
+// task3();
+
+/* -------------------------------------- */
+/* -------------------------------------- */
 
 // Task 4: Nested Try-Catch
 /*
@@ -57,7 +72,22 @@ Simulate an error in the nested try block and handle it in the nested catch bloc
 
 function task4() {
   // Code here
+  try {
+    try {
+      throw new Error('Oops, something went wrong!');
+    } catch (error) {
+      console.log(`Nested error: ${error.message}`);
+    }
+  } catch (error) {
+    console.log(`Outer error: ${error.message}`);
+  }
 }
+
+// Calling task4 function
+// task4();
+
+/* -------------------------------------- */
+/* -------------------------------------- */
 
 // Task 5: Function with Try-Catch
 /*
@@ -65,5 +95,15 @@ Create a function that uses try-catch to handle an array index out of bounds err
 */
 
 function task5(array, index) {
-  // Code here
+  try {
+    if (array[index] === undefined) {
+      throw new Error(`Invalid index: ${index}`);
+    }
+    console.log(array[index]);
+  } catch (error) {
+    console.log(`Error message: ${error.message}`);
+  }
 }
+
+// Calling task5 function
+task5([1, 2, 3], 4);
