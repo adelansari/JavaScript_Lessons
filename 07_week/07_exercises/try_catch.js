@@ -104,10 +104,10 @@ Create a function that uses try-catch to handle an array index out of bounds err
 
 function task5(array, index) {
   try {
-    if (array[index] === undefined) {
-      throw new Error(`Invalid index: ${index}`);
+    if (index < 0 || index >= array.length) {
+      throw new Error(`Index ${index} is out of bounds!`);
     }
-    console.log(array[index]);
+    console.log('Value: ', array[index]);
   } catch (error) {
     console.log(`Error message: ${error.message}`);
   }
@@ -115,4 +115,4 @@ function task5(array, index) {
 
 // Calling task5 function
 console.log('Task 5');
-task5([1, 2, 3], 4);
+task5([1, 2, 3], 5);
