@@ -47,3 +47,26 @@
   background-color: #b31c1c;
   border: none;
 }
+
+#carTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#carTable th,
+#carTable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#carTable tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#carTable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4caf50;
+  color: white;
+}

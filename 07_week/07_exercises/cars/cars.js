@@ -11,7 +11,7 @@ class Car {
 
 let cars = [];
 
-document.querySelector('#carForm').addEventListener('submit', function (event) {
+let addCar = (event) => {
   event.preventDefault();
 
   let car = new Car(
@@ -26,34 +26,78 @@ document.querySelector('#carForm').addEventListener('submit', function (event) {
   cars.push(car);
   displayCars();
   event.target.reset();
-});
+};
 
-document.querySelector('#searchForm').addEventListener('submit', function (event) {
-  event.preventDefault();
-
-  let search = document.querySelector('#search').value;
-  let results = cars.filter((car) => car.licensePlate.includes(search));
-  displaySearchResults(results);
-});
-
-function displayCars() {
+let displayCars = () => {
   let carTable = document.querySelector('#carTable');
-  carTable.innerHTML = '<h2>Car Database</h2>';
+
+  while (carTable.firstChild) {
+    carTable.removeChild(carTable.firstChild);
+  }
+
+  let headers = ['License Plate', 'Maker', 'Model', 'Owner', 'Price', 'Color'];
+  carTable.appendChild(createRow(headers, 'th'));
 
   cars.forEach((car) => {
-    let carDiv = document.createElement('div');
-    carDiv.textContent = `License Plate: ${car.licensePlate}, Maker: ${car.maker}, Model: ${car.model}, Owner: ${car.owner}, Price: ${car.price}, Color: ${car.color}`;
-    carTable.appendChild(carDiv);
+    carTable.appendChild(createRow(Object.values(car), 'td'));
   });
-}
+};
 
-function displaySearchResults(results) {
+let createRow = (values, cellType) => {
+  let row = document.createElement('tr');
+  values.forEach((value) => {
+    let cell = document.createElement(cellType);
+    cell.textContent = value;
+    row.appendChild(cell);
+  });
+  return row;
+};
+
+let searchCar = (event) => {
+  event.preventDefault();
+
+  let searchTerm = document.querySelector('#search').value.toLowerCase();
+  if (!searchTerm) {
+    displaySearchError('Search term is required.');
+    return;
+  }
+
+  let results = cars.filter((car) => car.licensePlate.toLowerCase().includes(searchTerm));
+  displaySearchResults(results);
+};
+
+let displaySearchResults = (results) => {
   let searchResults = document.querySelector('#searchResults');
-  searchResults.innerHTML = '<h2>Search Results</h2>';
 
-  results.forEach((car) => {
-    let resultDiv = document.createElement('div');
-    resultDiv.textContent = `License Plate: ${car.licensePlate}, Maker: ${car.maker}, Model: ${car.model}, Owner: ${car.owner}, Price: ${car.price}, Color: ${car.color}`;
-    searchResults.appendChild(resultDiv);
-  });
-}
+  while (searchResults.firstChild) {
+    searchResults.removeChild(searchResults.firstChild);
+  }
+
+  if (results.length === 0) {
+    let item = document.createElement('li');
+    item.textContent = 'No results found.';
+    searchResults.appendChild(item);
+  } else {
+    let headers = ['License Plate', 'Maker', 'Model', 'Owner', 'Price', 'Color'];
+    searchResults.appendChild(createRow(headers, 'th'));
+
+    results.forEach((car) => {
+      searchResults.appendChild(createRow(Object.values(car), 'td'));
+    });
+  }
+};
+
+let displaySearchError = (message) => {
+  let searchResults = document.querySelector('#searchResults');
+
+  while (searchResults.firstChild) {
+    searchResults.removeChild(searchResults.firstChild);
+  }
+
+  let item = document.createElement('li');
+  item.textContent = `Error: ${message}`;
+  searchResults.appendChild(item);
+};
+
+document.querySelector('#carForm').addEventListener('submit', addCar);
+document.querySelector('#searchForm').addEventListener('submit', searchCar);
