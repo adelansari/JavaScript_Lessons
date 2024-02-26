@@ -16,7 +16,8 @@ function task1() {
   }
 }
 // Calling task1 function
-// task1();
+console.log('Task 1');
+task1();
 
 /* -------------------------------------- */
 /* -------------------------------------- */
@@ -30,14 +31,15 @@ Catch the ReferenceError and log it to the console.
 function task2() {
   // Code here
   try {
-    console.log(foxes);
+    console.log(foxes); // error here
   } catch (error) {
     console.log(error);
   }
 }
 
 // Calling task2 function
-// task2();
+console.log('Task 2');
+task2();
 
 /* -------------------------------------- */
 /* -------------------------------------- */
@@ -50,7 +52,8 @@ Use a try-catch-finally block. In the finally block, log 'Execution completed'.
 function task3() {
   // Code here
   try {
-    console.log(foxes);
+    console.log('Inside try block.');
+    console.log(foxes); // error here
   } catch (error) {
     console.log(`Error message: ${error.message}`);
   } finally {
@@ -59,7 +62,8 @@ function task3() {
 }
 
 // Calling task3 function
-// task3();
+console.log('Task 3');
+task3();
 
 /* -------------------------------------- */
 /* -------------------------------------- */
@@ -73,18 +77,22 @@ Simulate an error in the nested try block and handle it in the nested catch bloc
 function task4() {
   // Code here
   try {
+    console.log('Outer Try Block');
+    console.log(foxes); // if this is added, it won't check the nested try catch block
     try {
-      throw new Error('Oops, something went wrong!');
+      // Simulate error
+      throw new Error('Nested error occured!');
     } catch (error) {
-      console.log(`Nested error: ${error.message}`);
+      console.log(`Nested catch block: ${error.message}`);
     }
   } catch (error) {
-    console.log(`Outer error: ${error.message}`);
+    console.log(`Outer catch block: ${error.message}`);
   }
 }
 
 // Calling task4 function
-// task4();
+console.log('Task 4');
+task4();
 
 /* -------------------------------------- */
 /* -------------------------------------- */
@@ -106,4 +114,5 @@ function task5(array, index) {
 }
 
 // Calling task5 function
+console.log('Task 5');
 task5([1, 2, 3], 4);
