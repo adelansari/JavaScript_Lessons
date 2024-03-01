@@ -10,13 +10,22 @@
 </head>
 
 <body>
+    <header>
+        <h1>Car Database</h1>
+        <form>
+            <label for="search">License</label>
+            <input type="text" id="search">
+            <button type="submit">Search Car</button>
+        </form>
+        <div>
+            <p id="searchResult"></p>
+        </div>
+    </header>
     <main>
         <h2>Insert car data</h2>
         <form id="addCar">
-
             <button type="submit">Add Car</button>
             <button type="reset"></button>
-
         </form>
 
         <table class="carsTable">
