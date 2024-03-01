@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Cars</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center">Car Database</h1>
+        <div class="btn-group" role="group">
+            <button id="carFormBtn" class="btn btn-primary active">Car Input Form</button>
+            <button id="carDatabaseBtn" class="btn btn-primary">Car Database</button>
+        </div>
+        <!-- Car Input Form -->
+        <div id="carFormSection">
+            <form id="carForm">
+                <h2>Insert Car Data</h2>
+                <label for="licensePlate">License Plate</label>
+                <input type="text" class="form-control" id="licensePlate" placeholder="ABC-123">
+                <label for="maker">Maker</label>
+                <input type="text" class="form-control" id="maker" placeholder="Toyota">
+                <label for="model">Model</label>
+                <input type="text" class="form-control" id="model" placeholder="Corolla">
+                <label for="owner">Owner</label>
+                <input type="text" class="form-control" id="owner" placeholder="John Doe">
+                <label for="price">Price</label>
+                <input type="number" class="form-control" id="price" placeholder="10000">
+                <input type="submit" class="btn btn-primary" value="Add Car">
+                <input type="reset" class="btn btn-secondary" value="Reset">
+            </form>
+        </div>
+        <div id="carDatabaseSection" style="display: none;">
+            <!-- Search Form -->
+            <form id="searchForm">
+                <h2>Search Form</h2>
+                <div class="form-group">
+                    <label for="search">Search</label>
+                    <input type="text" class="form-control" id="search" placeholder="ABC-123">
+                </div>
+                <div class="form-group">
+                    <label for="searchParameter">Search Parameter</label>
+                    <select class="form-control" id="searchParameter">
+                        <option value="licensePlate">License Plate</option>
+                        <option value="maker">Maker</option>
+                        <option value="model">Model</option>
+                        <option value="owner">Owner</option>
+                        <option value="price">Price</option>
+                        <option value="color">Color</option>
+                    </select>
+                </div>
+                <input type="submit" class="btn btn-primary" value="Search">
+            </form>
+            <h2>Car Database</h2>
+            <table id="carTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>License Plate</th>
+                        <th>Maker</th>
+                        <th>Model</th>
+                        <th>Owner</th>
+                        <th>Price</th>
+                        <th>Color</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be added here by JavaScript -->
+                </tbody>
+            </table>
+            <!-- Car Table -->
+        </div>
+    </div>
+    <script src="cars.js"></script>
+</body>
+
+</html>

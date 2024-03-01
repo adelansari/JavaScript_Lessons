@@ -1,0 +1,123 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 15px;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  margin: 5px;
+}
+
+.btn.active {
+  background-color: #007bff;
+  color: white;
+}
+
+#carFormSection {
+  background-color: #f8f9fa;
+}
+
+#carFormSection form,
+#searchForm,
+#carTable {
+  width: 100%;
+  min-width: 400px;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 5px;
+  display: grid;
+  gap: 10px;
+}
+
+#carFormSection form label,
+#searchForm label {
+  margin-bottom: 0.5rem;
+}
+
+#carFormSection form .form-control,
+#searchForm .form-control {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+#carFormSection form .btn,
+#searchForm .btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#carFormSection form .btn-primary,
+#searchForm .btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+#carFormSection form .btn-secondary,
+#searchForm .btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.text-danger {
+  color: red;
+}
+
+#carTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#carTable th,
+#carTable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#carTable tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#carTable tr:hover {
+  background-color: #ddd;
+}
+
+#carTable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #007bff;
+  color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 0 10px;
+  }
+
+  .btn-group {
+    flex-direction: column;
+  }
+
+  #carFormSection form,
+  #searchForm,
+  #carTable {
+    max-width: 100%;
+  }
+}
