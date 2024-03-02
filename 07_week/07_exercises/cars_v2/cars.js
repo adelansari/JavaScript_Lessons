@@ -32,7 +32,13 @@ let addCar = (event) => {
 
   localStorage.setItem('cars', JSON.stringify(cars));
 
-  displayCars();
+  const carForm = document.querySelector('#carForm');
+  const newCar = document.createElement('p');
+  newCar.textContent = 'The car has been added to the database.';
+
+  setTimeout(() => {
+    newCar.remove();
+  }, 3000);
   event.target.reset();
 };
 

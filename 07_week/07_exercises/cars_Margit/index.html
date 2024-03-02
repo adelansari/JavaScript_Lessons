@@ -6,16 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <title>Cars</title>
+    <title>Cars Demo</title>
 </head>
 
 <body>
     <header>
-        <h1>Car Database</h1>
-        <form>
+        <h1>Cars database</h1>
+        <form id="searchForm">
             <label for="search">License</label>
-            <input type="text" id="search">
-            <button type="submit">Search Car</button>
+            <input type="text" id="search" />
+            <button type="submit">Search car</button>
         </form>
         <div>
             <p id="searchResult"></p>
@@ -24,11 +24,34 @@
     <main>
         <h2>Insert car data</h2>
         <form id="addCar">
-            <button type="submit">Add Car</button>
-            <button type="reset"></button>
+            <div class="form_group">
+                <label for="license">License</label>
+                <input type="text" id="license" />
+            </div>
+            <div class="form_group">
+                <label for="maker">Maker</label>
+                <input type="text" id="maker" />
+            </div>
+            <div class="form_group">
+                <label for="model">Model</label>
+                <input type="text" id="model" />
+            </div>
+            <div class="form_group">
+                <label for="owner">Owner</label>
+                <input type="text" id="owner" />
+            </div>
+            <div class="form_group">
+                <label for="price">Price</label>
+                <input type="number" id="price" />
+            </div>
+            <div class="form_group">
+                <label for="color">Color</label>
+                <input type="color" id="color" />
+            </div>
+            <button type="submit">Add car</button>
+            <button type="reset">Reset form</button>
         </form>
-
-        <table class="carsTable">
+        <table id="carsTable">
             <tr>
                 <th>License</th>
                 <th>Maker</th>
@@ -39,10 +62,7 @@
             </tr>
         </table>
     </main>
-
-
-
-    <footer>Copyright &copy; Adel Ansari 2024</footer>
+    <footer>Copyright &copy; REACT24K</footer>
     <script src="main.js"></script>
 </body>
 

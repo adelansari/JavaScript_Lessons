@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overscroll-behavior: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Impact, sans-serif;
+  color: white;
+}
+
+header,
+section,
+footer {
+  padding: 1rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  position: sticky;
+  top: 0;
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+nav a {
+  text-decoration: none;
+  color: inherit;
+}
+
+section {
+  min-height: 75vh;
+}
+
+section:first-child,
+header {
+  background-color: purple;
+}
+
+section:nth-child(2),
+footer {
+  background-color: black;
+}
+
+button {
+  border: none;
+  border-radius: 5px;
+  box-shadow: none;
+  padding: 0.5rem 1rem;
+  background-color: orange;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+#backToTop {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+}
