@@ -15,15 +15,9 @@ const toggleModal = () => {
   overlay.classList.toggle('visible');
 };
 
-// btnModal.addEventListener('click', toggleModal);
-// btnClose.addEventListener('click', toggleModal);
-// overlay.addEventListener('click', toggleModal);
-[btnModal, btnClose, overlay].forEach((el) => el.addEventListener('click', toggleModal));
-
 backToTopButton.addEventListener('click', () => {
   document.body.scrollTop = 0; // for Safari
   document.documentElement.scrollTop = 0; // for Chrome, Firefox and others
-  // header.style.backgroundColor = 'orange';
 });
 
 window.addEventListener('scroll', () => {
@@ -38,3 +32,4 @@ window.addEventListener('scroll', () => {
 
 mobButton.addEventListener('click', toggleMenu);
 menuItems.forEach((item) => item.addEventListener('click', toggleMenu));
+[btnModal, btnClose, overlay].forEach((el) => el.addEventListener('click', toggleModal));
