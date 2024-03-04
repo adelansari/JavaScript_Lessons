@@ -29,6 +29,11 @@ header {
   top: 0;
 }
 
+header a {
+  text-decoration: none;
+  color: inherit;
+}
+
 nav ul li {
   display: inline-block;
 }
