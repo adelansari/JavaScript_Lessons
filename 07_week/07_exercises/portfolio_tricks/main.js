@@ -1,7 +1,7 @@
 const backToTopButton = document.querySelector('#backToTop');
 const header = document.querySelector('header');
 const mobile = document.querySelector('.mobile');
-const ul = document.querySelector('ul');
+const nav = document.querySelector('nav ul');
 
 backToTopButton.addEventListener('click', () => {
   document.body.scrollTop = 0; // for Safari
@@ -20,5 +20,5 @@ window.addEventListener('scroll', () => {
 });
 
 mobile.addEventListener('click', () => {
-  ul.classList.toggle('responsive');
+  nav.classList.toggle('responsive');
 });
