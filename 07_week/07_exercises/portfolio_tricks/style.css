@@ -34,6 +34,10 @@ header a {
   color: inherit;
 }
 
+nav ul {
+  display: block;
+}
+
 nav ul li {
   display: inline-block;
 }
@@ -79,4 +83,37 @@ button {
   background-color: white;
   font-size: 0.9rem;
   color: #333;
+}
+
+.mobile {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  nav ul {
+    display: none;
+  }
+
+  .mobile {
+    display: block;
+  }
+
+  ul.responsive {
+    display: block;
+    background-color: white;
+    color: #333;
+    position: absolute;
+    left: 0;
+    width: 100%;
+  }
+
+  ul.responsive li {
+    display: block;
+    margin: 1rem;
+  }
+
+  header {
+    background-color: white;
+    color: #333;
+  }
 }
