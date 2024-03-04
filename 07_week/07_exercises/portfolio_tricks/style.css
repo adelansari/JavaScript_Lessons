@@ -49,6 +49,7 @@ nav a {
 
 section {
   min-height: 75vh;
+  scroll-margin-top: 5rem;
 }
 
 section:first-child,
