@@ -90,6 +90,49 @@ button {
   display: none;
 }
 
+.overlay {
+  background-color: rgb(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.overlay.visible {
+  display: flex;
+}
+
+.modal {
+  background-color: white;
+  color: #333;
+  height: 50vh;
+  width: 75vw;
+  padding: 2rem;
+  border-radius: 5px;
+  position: relative;
+  overflow: auto;
+}
+
+.btnClose {
+  color: #aaaaaa;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+}
+
+.btnClose:hover,
+.btnClose:focus {
+  color: #ff0000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 @media (max-width: 800px) {
   nav ul {
     display: none;
