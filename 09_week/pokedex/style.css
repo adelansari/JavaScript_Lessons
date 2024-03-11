@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overscroll-behavior: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #333;
+  background-image: url(assets/pokemon-background.jpeg);
+  font-family: 'Lato', sans-serif;
+}
+
+.page-title {
+  text-align: center;
+  margin-top: 2rem;
+  color: white;
+}
+
+/* Pokemon container */
+#pokemon-container {
+  background-color: #a5d8ed40;
+  margin: 2rem 20%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  text-align: center;
+}
+#pokemon-container div {
+  background-color: #333;
+  border-radius: 5px;
+  color: #aff608;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+/* Pagination */
+#pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+#pagination button {
+  background-color: #aff608;
+  border: none;
+  border-radius: 5px;
+  color: #333;
+  padding: 0.5rem 1rem;
+  margin: 0 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#pagination button:hover {
+  background-color: #8bc34a;
+}
+
+#pagination span {
+  color: #aff608;
+}
+
+/* Search bar */
+#search-bar {
+  display: block;
+  margin: 1rem auto;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #333;
+}
+
+#search-bar::placeholder {
+  color: #333;
+}
