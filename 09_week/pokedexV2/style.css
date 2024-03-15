@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: url('http://source.unsplash.com/pZXg_ObLOM4') no-repeat fixed
+    center center/cover;
+  font-family: 'Open Sans', sans-serif;
+  margin: 5rem;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.data {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+  color: white;
+}
+
+.data div {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0 5px rgb(169, 169, 169);
+  border-radius: 5px;
+  text-align: center;
+}
+.data div:hover {
+  box-shadow: 0 0 10px rgb(99, 99, 99);
+}
+.data div:hover img {
+  filter: saturate(1);
+}
+.data div:hover h2 {
+  background-color: #3b4cca;
+}
+
+.data h2 {
+  background-color: #464856;
+  border-radius: 0 0 5px 5px;
+  padding: 1rem;
+}
+
+.data img {
+  width: 100%;
+  height: 200px;
+  padding: 1rem;
+  filter: saturate(0.1);
+}
+input {
+  padding: 1rem;
+  font-family: inherit;
+  margin: 2rem auto;
+}
+div.card{background-color: #464856;}
