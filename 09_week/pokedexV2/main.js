@@ -1,7 +1,7 @@
 let pokemons = [];
 
 const fetchData = () => {
-  fetch('https://pokeapi.co/api/v2/pokemon?limit=10000&offset=0')
+  fetch('https://pokeapi.co/api/v2/pokemon?limit=100&offset=0')
     .then((response) => response.json())
     .then((json) => {
       const fetches = json.results.map((item) => {
@@ -48,13 +48,16 @@ const displayData = (data) => {
 
 const toggleFavorite = (e) => {
   const pokemonName = e.target.getAttribute('data-name');
-  console.log(pokemonName);
+  const isFavorite = localStorage.getItem(pokemonName) === 'true';
+  localStorage.setItem(pokemonName, !isFavorite);
+
+  // Update the favorite text of the clicked button
+  const favoriteText = isFavorite ? 'Mark favorite' : 'Unmark favorite';
+  e.target.textContent = favoriteText;
 };
 
 const addFavorites = () => {
-  document
-    .querySelectorAll('#favButton')
-    .forEach((button) => button.addEventListener('click', toggleFavorite));
+  document.querySelectorAll('#favButton').forEach((button) => button.addEventListener('click', toggleFavorite));
 };
 
 const debounce = (func, delay) => {
@@ -69,12 +72,19 @@ const debounce = (func, delay) => {
 
 const searchPokemons = debounce((searchInput) => {
   console.log('search triggered');
-  const filteredData = pokemons.filter((pokemon) =>
-    pokemon.name.toLowerCase().includes(searchInput.toLowerCase())
-  );
+  const filteredData = pokemons.filter((pokemon) => pokemon.name.toLowerCase().includes(searchInput.toLowerCase()));
   displayData(filteredData);
 }, 300);
 
 document.querySelector('#search').addEventListener('input', (e) => {
   searchPokemons(e.target.value);
+});
+
+document.querySelector('#showFavorites').addEventListener('click', () => {
+  const favoritePokemons = pokemons.filter((pokemon) => localStorage.getItem(pokemon.name) === 'true');
+  displayData(favoritePokemons);
+});
+
+document.querySelector('#clear').addEventListener('click', () => {
+  displayData(pokemons);
 });
